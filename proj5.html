@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+        div{
+            margin-top:30px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+        button{
+            display:inline-block;
+            margin-left: 30px;;
+        }
+    </style>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    
+    <div>
+    <h1>Start change the Background color every second</h1>
+    <script src="chaiaurcode.js"></script>
+</div>
+<div><button id="start">Start</button>  <button id="stop">Stop</button></div>
+  </body>
+
+
+<script>
+
+    const color =function(){     
+    const s='0123456789ABCDEF';
+    let randomcolor='#';
+
+    for(let i=0;i<6;i++){
+        randomcolor=randomcolor+s[Math.floor(Math.random()*16)];   // genertaing random number between 0-16 to get index values from the string 
+    }
+
+    return randomcolor;
+}
+
+   // console.log(randomcolor);
+   
+
+   
+
+   let changeColor=function(){
+    document.body.style.backgroundColor=color();         // changing body color 
+   }
+   
+   let set;
+
+   const start=document.querySelector('#start');
+
+   start.addEventListener('click',()=>{
+
+
+    set= setInterval(changeColor,1000);
+
+   });
+
+
+
+
+   const stop=document.querySelector('#stop');
+
+   stop.addEventListener('click',()=>{
+    clearInterval(set);
+   });
+
+
+
+
+</script>
+
+
+
+
+</html>
